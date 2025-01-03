@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>お知らせ</title>
+    <link href="/css/output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+<div th:replace="fragments/header :: header"></div>
+<!-- メインコンテンツ -->
+<div class="max-w-7xl mx-auto py-8 px-6">
+
+    <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">社内通知</h1>
+
+    <div class="flex justify-center">
+        <div class="overflow-x-auto bg-white shadow-md rounded-lg mx-auto">
+            <table class="min-w-full table-auto">
+                <thead class="bg-blue-500 text-white">
+                <tr>
+                    <th class="px-6 py-3 text-left text-sm font-medium">重要度</th>
+                    <th class="px-6 py-3 text-left text-sm font-medium">対象</th>
+                    <th class="px-6 py-3 text-left text-sm font-medium">内容</th>
+                    <th class="px-6 py-3 text-left text-sm font-medium">発行日</th>
+                </tr>
+                </thead>
+                <tbody class="text-gray-700">
+                <!-- List<Notice> を繰り返して表示 -->
+                <tr th:each="notice : ${noticeList}" class="border-t">
+                    <td th:text="${notice.importance}" class="px-6 py-3 text-sm"></td>
+                    <td th:text="${notice.area}" class="px-6 py-3 text-sm"></td>
+                    <td th:text="${notice.content}" class="px-6 py-3 text-sm"></td>
+                    <td th:text="${notice.issueDate}" class="px-6 py-3 text-sm"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

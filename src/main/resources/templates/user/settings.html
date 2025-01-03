@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User List</title>
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+<h1>User List</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- List<User> を繰り返して表示 -->
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}">1</td>
+        <td th:text="${user.name}">John Doe</td>
+        <td th:text="${user.email}">john@example.com</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

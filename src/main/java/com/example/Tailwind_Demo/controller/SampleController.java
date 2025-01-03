@@ -1,4 +1,4 @@
-package com.example.Tailwind_Demo;
+package com.example.Tailwind_Demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +12,7 @@ public class SampleController {
     @GetMapping("/")
     public String home(Model model) {
         model.addAttribute("name", "Test User");
+        model.addAttribute("role", "admin");
         return "index";
     }
 }
